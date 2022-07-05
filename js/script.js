@@ -61,14 +61,13 @@ const app = new Vue({
         },
 
         startTimer(){
-            const start = setInterval(() => {
+            this.loop = setInterval(() => {
                 this.goNextImg();
             }, 3000)
-            return start;
         }
     },
 
     mounted(){
-        this.loop = this.startTimer();
+        this.startTimer();
     }
 });
