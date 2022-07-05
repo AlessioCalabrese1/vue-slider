@@ -35,9 +35,7 @@ const app = new Vue({
 
         index : 0,
 
-        loop : setInterval(function(){
-            this.index++;
-        }, 1000),
+        loop : "",
     },
 
     methods : {
@@ -45,8 +43,6 @@ const app = new Vue({
             /* const thumbnailInSight = document.querySelectorAll(".thumb.active");
             console.log(thumbnailInSight); */
             this.index++;
-            console.log(this.index);
-            console.log(this.thumbnail);
             if(this.index == this.slides.length){
                 this.index = 0;
             }
@@ -54,7 +50,6 @@ const app = new Vue({
 
         goPreviousImg(){
             this.index--;
-            console.log(this.index);
             if (this.index == -1) {
                 this.index = this.slides.length - 1;
             }
@@ -62,10 +57,13 @@ const app = new Vue({
 
         stopLoop(){
             clearInterval(this.loop);
+            console.log(this.loop);
         },
     },
 
     mounted(){
-        app.loop;
+        loop = setInterval(function(){
+            app.goNextImg();
+        }, 3000);
     }
 });
