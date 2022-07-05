@@ -61,9 +61,10 @@ const app = new Vue({
         },
 
         startTimer(){
-            setInterval(() => {
+            const start = setInterval(() => {
                 this.goNextImg();
             }, 3000)
+            return start;
         }
     },
 
